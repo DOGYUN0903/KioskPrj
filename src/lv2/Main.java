@@ -25,23 +25,27 @@ public class Main {
 
     }
 
+    /**
+     * 사용자로부터 입력받은 주문 번호에 따라 메뉴 정보를 출력하거나 프로그램을 종료합니다.
+     *
+     * @param orderNum 사용자가 입력한 주문 번호
+     * @param menuItems 메뉴 항목 리스트
+     * @return 주문 번호가 0인 경우 true(프로그램 종료), 그 외에는 false
+     */
     private static boolean order(int orderNum, List<MenuItem> menuItems) {
-        if (orderNum == 1) {
-            System.out.println(menuItems.get(0).getFoodName() + "를 주문하였습니다. 가격은 " + menuItems.get(0).getPrice() + "원 입니다.");
-            System.out.println("메뉴 설명: " + menuItems.get(0).getDescription());
-        } else if (orderNum == 2) {
-            System.out.println(menuItems.get(1).getFoodName() + "를 주문하였습니다. 가격은 " + menuItems.get(1).getPrice() + "원 입니다.");
-            System.out.println("메뉴 설명: " + menuItems.get(1).getDescription());
-        } else if (orderNum == 3) {
-            System.out.println(menuItems.get(2).getFoodName() + "를 주문하였습니다. 가격은 " + menuItems.get(2).getPrice() + "원 입니다.");
-            System.out.println("메뉴 설명: " + menuItems.get(2).getDescription());
-        } else if (orderNum == 4) {
-            System.out.println(menuItems.get(3).getFoodName() + "를 주문하였습니다. 가격은 " + menuItems.get(3).getPrice() + "원 입니다.");
-            System.out.println("메뉴 설명: " + menuItems.get(3).getDescription());
-        } else if (orderNum == 0) {
+        // 주문 번호가 1~4 사이일 경우, 해당 인덱스의 메뉴 정보를 출력
+        if (orderNum >= 1 && orderNum <= menuItems.size()) {
+            MenuItem menu = menuItems.get(orderNum - 1); // 인덱스는 0부터 시작이니까 -1을 사용하여 인덱스에 맞춰줍니다.
+            System.out.println(menu.getFoodName() + "를 주문하였습니다. 가격은 " + menu.getPrice() + "원 입니다.");
+            System.out.println("메뉴 설명: " + menu.getDescription());
+        }
+        // 주문 번호가 0이면 프로그램 종료
+        else if (orderNum == 0) {
             System.out.println("키오스크 프로그램을 종료합니다. 안녕히가세요.");
             return true;
-        } else {
+        }
+        // orderNum >= 1 && orderNum <= menuItems.size() 이외의 번호는 잘못된 입력으로 다시 처음부터 메뉴 선택
+        else {
             System.out.println("잘못된 주문번호입니다.");
         }
         return false;
@@ -50,6 +54,10 @@ public class Main {
     private static void showMenu(List<MenuItem> menuItems) {
         System.out.println("=====================================================================");
         System.out.println("[ SHAKESHACK MENU ]");
+        // 메뉴판을 하드코딩하지 않기 위해 반복문을 사용합니다.
+        // 메뉴는 menuItems 리스트에 저장되어 있으며, 리스트의 각 요소는 MenuItem 객체입니다.
+        // 인덱스는 0부터 시작하지만, 메뉴 번호는 1부터 출력해야 하므로 i + 1을 사용합니다.
+        // 각 항목은 getter를 통해 이름, 가격, 설명을 가져와 출력합니다.
         for (int i = 0; i < menuItems.size(); i++) {
             System.out.println((i+1) + ". " + menuItems.get((i)).getFoodName() + "   | " + menuItems.get((i)).getPrice() + " | " + menuItems.get((i)).getDescription());
         }
