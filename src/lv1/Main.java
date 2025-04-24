@@ -9,29 +9,33 @@ public class Main {
         while (true) {
             showMenu(); // 메뉴판 출력
             System.out.print("원하시는 주문 번호를 입력하여 주십시오: ");
-            int order = sc.nextInt(); // 어떤 기능을 수행할 것인지 선택
+            int inputNum = sc.nextInt(); // 어떤 기능을 수행할 것인지 선택
             sc.nextLine(); // 개행 제거
 
-            if (order == 1) {
-                System.out.println("shackBurger를 주문하였습니다. 가격은 6900원 입니다.");
-//                purchase(sc);
-            } else if (order == 2) {
-                System.out.println("SmokeShack을 주문하였습니다. 가격은 8900원 입니다.");
-//                purchase(sc);
-            } else if (order == 3) {
-                System.out.println("Cheeseburger를 주문하였습니다. 가격은 6900원 입니다.");
-//                purchase(sc);
-            } else if (order == 4) {
-                System.out.println("Hamburger를 주문하였습니다. 가격은 5400원 입니다.");
-//                purchase(sc);
-            } else if (order == 0) {
-                System.out.println("키오스크 프로그램을 종료합니다. 안녕히가세요.");
-                break;
-            } else {
-                System.out.println("잘못된 주문번호입니다.");
-            }
-
+            if (order(inputNum)) break;
         }
+    }
+
+    private static boolean order(int inputNum) {
+        if (inputNum == 1) {
+            System.out.println("shackBurger를 주문하였습니다. 가격은 6900원 입니다.");
+//                purchase(sc);
+        } else if (inputNum == 2) {
+            System.out.println("SmokeShack을 주문하였습니다. 가격은 8900원 입니다.");
+//                purchase(sc);
+        } else if (inputNum == 3) {
+            System.out.println("Cheeseburger를 주문하였습니다. 가격은 6900원 입니다.");
+//                purchase(sc);
+        } else if (inputNum == 4) {
+            System.out.println("Hamburger를 주문하였습니다. 가격은 5400원 입니다.");
+//                purchase(sc);
+        } else if (inputNum == 0) {
+            System.out.println("키오스크 프로그램을 종료합니다. 안녕히가세요.");
+            return true;
+        } else {
+            System.out.println("잘못된 주문번호입니다.");
+        }
+        return false;
     }
 
 //    private static void purchase(Scanner sc) {
