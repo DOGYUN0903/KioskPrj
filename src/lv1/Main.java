@@ -13,6 +13,7 @@ public class Main {
             sc.nextLine(); // 개행 제거
 
             if (order(inputNum)) break;
+
         }
     }
 
