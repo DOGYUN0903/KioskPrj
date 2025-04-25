@@ -68,12 +68,6 @@ public class Kiosk {
         }
     }
 
-    private void handleOrder(Menu selectedMenu, int orderNum) {
-        MenuItem menu = selectedMenu.getMenuItems().get(orderNum - 1);
-        System.out.println(menu.getFoodName() + "를 주문하였습니다. 가격은 " + menu.getPrice() + "원 입니다.");
-        System.out.println("메뉴 설명: " + menu.getDescription());
-    }
-
     private void showMenuItems(Menu menu) {
         System.out.println("=====================================================================");
         System.out.println("[ " + menu.getMenuCategory() + " MENU ]");
@@ -88,6 +82,12 @@ public class Kiosk {
         System.out.println("0. 뒤로가기");
         System.out.println("=====================================================================");
         System.out.println();
+    }
+
+    private void handleOrder(Menu selectedMenu, int orderNum) {
+        MenuItem menu = selectedMenu.getMenuItems().get(orderNum - 1);
+        System.out.println(menu.getFoodName() + "를 주문하였습니다. 가격은 " + menu.getPrice() + "원 입니다.");
+        System.out.println("메뉴 설명: " + menu.getDescription());
     }
 
 }
