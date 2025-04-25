@@ -15,7 +15,8 @@ public class Kiosk {
 
     public void start() {
         while (true) {
-            int inputNum = showMainMenu(sc);
+            showMainMenu();
+            int inputNum = inputMainMenuNumber();
 
             if (inputNum == 0) {
                 System.out.println("프로그램을 종료합니다.");
@@ -27,7 +28,7 @@ public class Kiosk {
     }
 
 
-    private int showMainMenu(Scanner sc) {
+    private void showMainMenu() {
         System.out.println("=====================================================================");
         System.out.println("[                             MAIN MENU                             ]");
         for (int i = 0; i < menus.size(); i++) {
@@ -36,6 +37,9 @@ public class Kiosk {
         System.out.println("0. 종료      | 종료");
         System.out.println("=====================================================================");
         System.out.print("입력: ");
+    }
+
+    private int inputMainMenuNumber() {
         int inputNumber = sc.nextInt();
         System.out.println();
         return inputNumber;
