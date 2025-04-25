@@ -6,10 +6,11 @@ import java.util.Scanner;
 
 public class Kiosk {
     private List<Menu> menus;
-    private Scanner sc = new Scanner(System.in);
+    private final Scanner sc;
 
-    public Kiosk(List<Menu> menus) {
+    public Kiosk(List<Menu> menus, Scanner sc) {
         this.menus = menus;
+        this.sc = sc;
     }
 
     public void start() {

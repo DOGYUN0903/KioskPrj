@@ -2,9 +2,11 @@ package lv4;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         List<MenuItem> burgers = new ArrayList<>();
         burgers.add(new MenuItem("ShackBurger", 6900, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
         burgers.add(new MenuItem("SmokeShack", 8900, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
@@ -29,7 +31,7 @@ public class Main {
         menus.add(drinkMenu);
         menus.add(dessertMenu);
 
-        Kiosk kiosk = new Kiosk(menus);
+        Kiosk kiosk = new Kiosk(menus, sc);
 
         kiosk.start();
 
