@@ -3,6 +3,7 @@ package challengeLv2.domain.order;
 import challengeLv2.domain.cart.CartService;
 import challengeLv2.domain.menu.Menu;
 import challengeLv2.domain.menu.MenuItem;
+import challengeLv2.enums.UserType;
 import challengeLv2.exception.ExceptionHandler;
 import challengeLv2.exception.InputException;
 
@@ -66,10 +67,41 @@ public class OrderService {
                 int choice = ExceptionHandler.safeReadInt(sc);
 
                 if (choice == 1) {
+                    UserType selectedUserType = null;
+
+                    while (true) {
+                        try {
+                            System.out.println("할인 정보를 입력해주세요:");
+                            for (int i = 0; i < UserType.values().length; i++) {
+                                UserType type = UserType.values()[i];
+                                System.out.println((i + 1) + ". " + type.getDiscountType() + " : " + type.getDiscountPercent() + "%");
+                            }
+                            System.out.print("입력: ");
+                            int inputDiscountInfo = ExceptionHandler.safeReadInt(sc);
+
+                            if (inputDiscountInfo >= 1 && inputDiscountInfo <= UserType.values().length) {
+                                selectedUserType = UserType.values()[inputDiscountInfo - 1];
+                                break;
+                            } else {
+                                System.out.println("유효하지 않은 번호입니다. 다시 입력해주세요.");
+                            }
+                        } catch (InputException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+
+                    // 할인 계산
                     int totalPrice = cartService.calculateTotalPrice();
-                    System.out.println("주문이 완료되었습니다. 결제 금액은 " + totalPrice + "원입니다.");
+                    int discountAmount = totalPrice * selectedUserType.getDiscountPercent() / 100;
+                    int finalPrice = totalPrice - discountAmount;
+
+                    System.out.println("할인 적용 완료 (" + selectedUserType.getDiscountType() + ")");
+                    System.out.println("최종 결제 금액: " + finalPrice + "원");
+                    System.out.println("주문이 완료되었습니다. 감사합니다!");
+
                     cartService.clearCart();
                     return;
+
                 } else if (choice == 2) {
                     System.out.println("메뉴판으로 돌아갑니다.");
                     return;
