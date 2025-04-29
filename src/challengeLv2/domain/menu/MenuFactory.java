@@ -1,5 +1,7 @@
 package challengeLv2.domain.menu;
 
+import challengeLv2.enums.MenuCategory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,9 +28,9 @@ public class MenuFactory {
                 new MenuItem("corn", 1000, "옥수수콘!")
         );
 
-        menus.add(new Menu("Burgers", burgers));
-        menus.add(new Menu("Drinks", drinks));
-        menus.add(new Menu("Desserts", desserts));
+        menus.add(new Menu(MenuCategory.BURGER, burgers));
+        menus.add(new Menu(MenuCategory.DRINK, drinks));
+        menus.add(new Menu(MenuCategory.DESSERT, desserts));
 
         return menus;
     }
