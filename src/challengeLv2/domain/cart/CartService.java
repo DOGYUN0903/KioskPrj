@@ -3,6 +3,7 @@ package challengeLv2.domain.cart;
 import challengeLv2.domain.menu.MenuItem;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class CartService {
     private final Cart cart;
@@ -37,10 +38,11 @@ public class CartService {
 
         System.out.println("[ 장바구니 목록 ]");
         List<CartItem> cartItems = cart.getCartItems();
-        for (int i = 0; i < cartItems.size(); i++) {
-            CartItem item = cartItems.get(i);
-            System.out.println((i + 1) + ". " + item.getFoodName() + " | " + item.getPrice() + "원 | 수량: " + item.getQuantity());
-        }
+        IntStream.range(0, cartItems.size())
+                .forEach(i -> {
+                    CartItem item = cartItems.get(i);
+                    System.out.println((i + 1) + ". " + item.getFoodName() + " | " + item.getPrice() + "원 | 수량: " + item.getQuantity());
+                });
         System.out.println("[ 총합계 ] " + cart.calculateTotalPrice() + "원");
     }
 
@@ -78,4 +80,5 @@ public class CartService {
             System.out.println(selectedItem.getFoodName() + "의 수량이 " + selectedItem.getQuantity() + "개로 감소되었습니다.");
         }
     }
+
 }
