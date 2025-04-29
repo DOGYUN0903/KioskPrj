@@ -1,17 +1,19 @@
 package challengeLv2.domain.menu;
 
+import challengeLv2.enums.MenuCategory;
+
 import java.util.List;
 
 public class Menu {
-    private String menuCategory;
+    private MenuCategory menuCategory;
     private List<MenuItem> menuItems;
 
-    public Menu(String menuCategory, List<MenuItem> menuItems) {
+    public Menu(MenuCategory menuCategory, List<MenuItem> menuItems) {
         this.menuCategory = menuCategory;
         this.menuItems = menuItems;
     }
 
-    public String getMenuCategory() {
+    public MenuCategory getMenuCategory() {
         return menuCategory;
     }
 
