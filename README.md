@@ -48,6 +48,47 @@
 
 <hr>
 
+## 클래스 다이어그램
+<details>
+<summary>Lv1</summary>
+
+![img_8.png](img_8.png)
+
+</details>
+
+<details>
+<summary>Lv2</summary>
+
+![img_9.png](img_9.png)
+
+</details>
+
+<details>
+<summary>Lv3</summary>
+
+![img_10.png](img_10.png)
+
+</details>
+
+<details>
+<summary>Lv4</summary>
+
+![img_11.png](img_11.png)
+
+</details>
+
+<details>
+<summary>ChallengeLv1</summary>
+
+![img_12.png](img_12.png)
+
+</details>
+
+
+- ChallengeLv2
+
+<hr>
+
 ## 주요 클래스 설명
 
 - `MenuItem`: 음식의 이름, 가격, 설명 정보를 포함
