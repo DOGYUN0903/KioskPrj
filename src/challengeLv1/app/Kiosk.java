@@ -13,11 +13,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Kiosk {
-    private List<Menu> menus;
+    private List<Menu> menus;  // 전체 메뉴 목록
     private final Scanner sc;
-    private final MenuService menuService;
-    private final OrderService orderService;
-    private final CartService cartService;
+    private final MenuService menuService;  // 메뉴 관련 서비스
+    private final OrderService orderService; // 주문 서비스
+    private final CartService cartService;  // 장바구니 서비스
 
     public Kiosk(List<Menu> menus, Scanner sc) {
         this.menus = menus;
@@ -30,19 +30,19 @@ public class Kiosk {
     public void start() {
         while (true) {
             try {
-                menuService.showMainMenu(menus, cartService);
+                menuService.showMainMenu(menus, cartService);  // 메인 메뉴 출력
                 System.out.print("입력: ");
                 int inputNum = ExceptionHandler.safeReadInt(sc);
 
                 if (inputNum == 0) {
-                    exitProgram();
+                    exitProgram(); // 프로그램 종료
                     break;
                 } else if (inputNum > 0 && inputNum <= menus.size()) {
-                    showFoodMenu(inputNum);
+                    showFoodMenu(inputNum); // 메뉴 카테고리 상세보기
                 } else if (inputNum == 4) {
-                    processOrderMenu();
+                    processOrderMenu(); // 주문
                 } else if (inputNum == 5) {
-                    processCancelMenu();
+                    processCancelMenu(); // 주문 취소
                 } else {
                     System.out.println("잘못된 입력입니다.");
                 }
@@ -53,10 +53,12 @@ public class Kiosk {
         }
     }
 
+    // 프로그램 종료
     private void exitProgram() {
         System.out.println("프로그램을 종료합니다.");
     }
 
+    // 장바구니 비어있는지 확인하고 주문 처리하기
     private void processOrderMenu() {
         if (cartService.isCartEmpty()) {
             System.out.println("장바구니가 비어있습니다.");
@@ -65,6 +67,7 @@ public class Kiosk {
         }
     }
 
+    // 주문 취소
     private void processCancelMenu() {
         if (cartService.isCartEmpty()) {
             System.out.println("장바구니가 비어있습니다.");
@@ -93,6 +96,7 @@ public class Kiosk {
         }
     }
 
+    // 특정 상품 수량 줄이기
     private void handlePartialCancel() {
         cartService.showCart();
 
@@ -121,6 +125,7 @@ public class Kiosk {
         cartService.decreaseItemQuantity(itemIndex, quantity);
     }
 
+    // 카테고리 선택 시 해당 메뉴 항목 보여주기
     private void showFoodMenu(int inputNum) {
         Menu selectedMenu = menus.get(inputNum - 1);
 

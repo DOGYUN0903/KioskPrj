@@ -1,5 +1,8 @@
 package challengeLv1.domain.menu;
 
+/**
+ * MenuItem 클래스는 하나의 음식 정보입니다.
+ */
 public class MenuItem {
     private String foodName; // 음식 이름
     private int price; // 음식 가격
