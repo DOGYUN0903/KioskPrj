@@ -9,8 +9,11 @@ import challengeLv2.exception.InputException;
 
 import java.util.Scanner;
 
+/**
+ * OrderService 클래스는 주문 처리 전반(메뉴 선택, 수량, 할인 선택, 결제)을 담당합니다.
+ */
 public class OrderService {
-    private final CartService cartService;
+    private final CartService cartService; // 장바구니 서비스
     private final Scanner sc;
 
     public OrderService(CartService cartService, Scanner sc) {
@@ -18,6 +21,7 @@ public class OrderService {
         this.sc = sc;
     }
 
+    // 사용자가 메뉴 항목을 선택한 후 장바구니에 추가할지 확인하고 수량을 받아 처리
     public void processOrder(Menu menu, int orderNum) {
         MenuItem item = menu.getMenuItems().get(orderNum - 1);
 
@@ -30,12 +34,14 @@ public class OrderService {
         }
     }
 
+    // 선택된 메뉴 상세 정보 출력
     private void showItemDetail(MenuItem item) {
         System.out.println(item.getFoodName() + "를 주문하였습니다. 가격은 " + item.getPrice() + "원 입니다.");
         System.out.println("메뉴 설명: " + item.getDescription());
         System.out.println();
     }
 
+    // 장바구니 추가 여부를 물어봄
     private boolean addToCart(MenuItem item) {
         while (true) {
             try {
@@ -57,6 +63,7 @@ public class OrderService {
         }
     }
 
+    // 수량을 입력받아 장바구니에 추가
     private void chooseQuantity(MenuItem item) {
         while (true) {
             try {
@@ -72,8 +79,7 @@ public class OrderService {
         }
     }
 
-
-
+    // 장바구니를 출력하고 결제 여부와 할인 정보를 받아 최종 결제 처리
     public void showOrder() {
         cartService.showCart();
         System.out.println();
@@ -90,6 +96,7 @@ public class OrderService {
         }
     }
 
+    // 주문 여부 선택
     private int askOrder() {
         while (true) {
             try {
@@ -104,6 +111,7 @@ public class OrderService {
         }
     }
 
+    // 할인 정보 선택: UserType Enum을 통해 사용자 유형 선택
     private UserType selectDiscount() {
         while (true) {
             try {
@@ -126,6 +134,7 @@ public class OrderService {
         }
     }
 
+    // 최종 결제 및 할인 적용
     private void completeOrder(UserType userType) {
         int totalPrice = cartService.calculateTotalPrice();
         int discountAmount = totalPrice * userType.getDiscountPercent() / 100;

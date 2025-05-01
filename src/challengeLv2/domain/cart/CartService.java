@@ -5,6 +5,10 @@ import challengeLv2.domain.menu.MenuItem;
 import java.util.List;
 import java.util.stream.IntStream;
 
+/**
+ * CartService 클래스는 Cart 객체를 사용해
+ * 장바구니 항목을 추가하고 보여주고 삭제하는 등의 비즈니스 로직을 제공합니다.
+ */
 public class CartService {
     private final Cart cart;
 
@@ -12,7 +16,10 @@ public class CartService {
         this.cart = cart;
     }
 
-    // 메뉴를 장바구니에 추가
+    /**
+     * 메뉴 항목을 장바구니에 추가합니다.
+     * 이미 존재하면 수량만 증가하고, 없다면 새로 추가합니다.
+     */
     public void addToCart(MenuItem menuItem, int quantity) {
         // 기존에 있는 메뉴라면 수량만 증가
         for (CartItem cartItem : cart.getCartItems()) {
@@ -38,6 +45,8 @@ public class CartService {
 
         System.out.println("[ 장바구니 목록 ]");
         List<CartItem> cartItems = cart.getCartItems();
+
+        // Stream 사용한 항목 출력
         IntStream.range(0, cartItems.size())
                 .forEach(i -> {
                     CartItem item = cartItems.get(i);
@@ -62,7 +71,9 @@ public class CartService {
         return cart.calculateTotalPrice();
     }
 
-    // 특정 상품 수량 감소
+    /**
+     * 사용자가 특정 항목의 수량을 줄이거나, 완전히 삭제할 수 있도록 합니다.
+     */
     public void decreaseItemQuantity(int index, int quantity) {
         List<CartItem> cartItems = cart.getCartItems();
 
@@ -73,9 +84,11 @@ public class CartService {
 
         CartItem selectedItem = cartItems.get(index);
         if (selectedItem.getQuantity() <= quantity) {
+            // 수량 이하일 경우 항목 삭제
             cartItems.remove(index);
             System.out.println(selectedItem.getFoodName() + "가 장바구니에서 삭제되었습니다.");
         } else {
+            // 아니면 수량만 감소
             selectedItem.decreaseQuantity(quantity);
             System.out.println(selectedItem.getFoodName() + "의 수량이 " + selectedItem.getQuantity() + "개로 감소되었습니다.");
         }

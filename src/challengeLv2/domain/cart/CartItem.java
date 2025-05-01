@@ -2,23 +2,29 @@ package challengeLv2.domain.cart;
 
 import challengeLv2.domain.menu.MenuItem;
 
+/**
+ * CartItem은 장바구니에 담긴 개별 상품과 수량을 나타냅니다.
+ */
 public class CartItem {
-    private final MenuItem menuItem;
-    private int quantity;
+    private final MenuItem menuItem;  // 담긴 메뉴 항목
+    private int quantity;             // 수량
 
     public CartItem(MenuItem menuItem, int quantity) {
         this.menuItem = menuItem;
         this.quantity = quantity;
     }
 
+    // 음식 이름 반환
     public String getFoodName() {
         return menuItem.getFoodName();
     }
 
+    // 개당 가격 반환
     public int getPrice() {
         return menuItem.getPrice();
     }
 
+    // 수량 반환
     public int getQuantity() {
         return quantity;
     }
