@@ -52,40 +52,46 @@
 <details>
 <summary>Lv1</summary>
 
-![img_8.png](img_8.png)
+![img_8.png](img/img_8.png)
 
 </details>
 
 <details>
 <summary>Lv2</summary>
 
-![img_9.png](img_9.png)
+![img_9.png](img/img_9.png)
 
 </details>
 
 <details>
 <summary>Lv3</summary>
 
-![img_10.png](img_10.png)
+![img_10.png](img/img_10.png)
 
 </details>
 
 <details>
 <summary>Lv4</summary>
 
-![img_11.png](img_11.png)
+![img_11.png](img/img_11.png)
 
 </details>
 
 <details>
 <summary>ChallengeLv1</summary>
 
-![img_12.png](img_12.png)
+![img_12.png](img/img_12.png)
+
+</details>
+
+<details>
+<summary>ChallengeLv2</summary>
+
+![img_13.png](img/img_13.png)
 
 </details>
 
 
-- ChallengeLv2
 
 <hr>
 
@@ -108,33 +114,33 @@
 
 ### 1. 메인메뉴 출력 화면 
 ### - 사용자는 메인 메뉴(버거, 음료 등)에서 원하는 항목을 선택합니다.
-![img.png](img.png)
+![img.png](img/img.png)
 
 ### 2. 선택한 카테고리의 상세 메뉴 출력 화면
 ### - 선택한 카테고리(Burgers 등)의 MenuItem 목록이 출력됩니다.
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 
 ### 3. 메뉴 상세 정보 확인 화면
 ### - 선택한 메뉴의 이름, 가격, 설명을 확인하고, 장바구니에 추가 여부를 선택합니다.
-![img_2.png](img_2.png)
+![img_2.png](img/img_2.png)
 
 ### 4. 수량 입력 화면
 ### - 추가를 선택한 경우, 원하는 수량을 입력합니다.
-![img_3.png](img_3.png)
+![img_3.png](img/img_3.png)
 
 ### 5. 장바구니 기능 활성화
 ### - 장바구니에 항목이 추가되면 [ORDER MENU]가 나타납니다. (주문 / 주문 취소)
-![img_4.png](img_4.png)
+![img_4.png](img/img_4.png)
 
 ### 6. 장바구니 목록 및 결제 전 확인
 ### - 장바구니 내용을 출력하며 총 금액을 계산하고, 주문 여부를 확인합니다.
-![img_5.png](img_5.png)
+![img_5.png](img/img_5.png)
 
 ### 7. 할인 정보 선택 화면
 ### - 주문을 선택하면 사용자 할인 유형을 선택할 수 있습니다. (군인, 학생, 일반 등)
-![img_6.png](img_6.png)
+![img_6.png](img/img_6.png)
 
 ### 8. 할인 적용 및 주문 완료
 ### - 선택한 할인율이 적용된 최종 금액이 출력되며, 주문 완료 후 장바구니가 초기화됩니다.
-![img_7.png](img_7.png)
+![img_7.png](img/img_7.png)
 
